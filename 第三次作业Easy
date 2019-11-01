@@ -1,0 +1,42 @@
+package Fruits;
+
+interface Fruits{
+    public void eat();
+}
+class Apple implements Fruits{
+    public void eat(){
+        System.out.println("苹果");
+    }
+}
+class Orange implements Fruits{
+    public void eat(){
+        System.out.println("橙子");
+    }
+}
+class Coconut implements Fruits{
+    public void eat(){
+        System.out.println("椰子");
+    }
+}
+class Factory{
+    public static Fruits getInstance(String className){
+        Fruits f=null;
+        if("Apple".equals(className)){
+            f=new Apple();
+        }
+        if("Orange".equals(className)){
+            f=new Orange();
+        }
+        if("Coconut".equals(className)){
+            f=new Coconut();
+        }
+        return f;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Fruits f=null;
+        f=Factory.getInstance("Coconut");
+        f.eat();
+    }
+}
